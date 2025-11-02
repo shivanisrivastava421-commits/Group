@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-model = joblib.load("model(1).pkl")
+model = joblib.load("model (1).pkl")
 
 class InputData(BaseModel):
     features: list
@@ -12,4 +12,5 @@ class InputData(BaseModel):
 @app.post("/predict")
 def predict(data: InputData):
     prediction = model.predict([data.features])
+
     return {"prediction": prediction.tolist()}
